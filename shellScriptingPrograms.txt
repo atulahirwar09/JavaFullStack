@@ -1,0 +1,193 @@
+#!/bin/sh
+
+a=10
+b=20
+
+val=`expr $a + $b`
+echo "a + b : $val"
+
+val=`expr $a - $b`
+echo "a - b : $val"
+
+val=`expr $a \* $b`
+echo "a * b : $val"
+
+val=`expr $b / $a`
+echo "b / a : $val"
+
+val=`expr $b % $a`
+echo "b % a : $val"
+
+if [ $a == $b ]
+then
+   echo "a is equal to b"
+fi
+
+if [ $a != $b ]
+then
+   echo "a is not equal to b"
+fi
+
+
+
+
+////////////////////////////////////////////////
+#!/bin/sh
+
+val=`expr 2 + 2`
+echo "Total value : $val"
+
+////////////////////////////////////////////////
+File handling
+#!/bin/sh
+
+file="/var/www/tutorialspoint/unix/test.sh"
+
+if [ -r $file ]
+then
+   echo "File has read access"
+else
+   echo "File does not have read access"
+fi
+
+if [ -w $file ]
+then
+   echo "File has write permission"
+else
+   echo "File does not have write permission"
+fi
+
+if [ -x $file ]
+then
+   echo "File has execute permission"
+else
+   echo "File does not have execute permission"
+fi
+
+if [ -f $file ]
+then
+   echo "File is an ordinary file"
+else
+   echo "This is sepcial file"
+fi
+
+if [ -d $file ]
+then
+   echo "File is a directory"
+else
+   echo "This is not a directory"
+fi
+
+if [ -s $file ]
+then
+   echo "File size is not zero"
+else
+   echo "File size is zero"
+fi
+
+if [ -e $file ]
+then
+   echo "File exists"
+else
+   echo "File does not exist"
+fi
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+#!/bin/bash
+
+# Prompt the user for their name
+echo "Please enter your name:"
+
+# Read the input from the user and store it in the variable 'name'
+read name
+
+# Output a greeting message
+echo "Hello, $name! Welcome to the shell scripting world."
+///////////////////////////////////////////////////////////////////////////////////////
+
+for i in {1..5}
+do
+    echo "$i"
+done
+
+///////////////////////////////////////////////////////////////////////////////////
+c style syntax
+
+for (( i=1; i<=5; i++ ))
+do
+    echo "$i"
+done
+
+////////////////////////////////////////////////////////////////////////////
+
+Reading lines from a file
+
+for line in $(cat filename.txt)
+do
+    echo "$line"
+done
+/////////////////////////////////////////////////////////////////
+
+##sum of 10 numbers
+#!/bin/bash
+
+# Initialize sum variable
+sum=0
+
+# Loop through numbers
+for (( i=1; i<=10; i++ ))
+do
+    read -p "Enter number $i: " num
+    sum=$(( sum + num ))
+done
+
+///////////////////////////////////////////////////////////////////////////////////
+	While loop sample
+#!/bin/bash
+
+# Initialize counter
+counter=1
+
+# While loop
+while [ $counter -le 5 ]
+do
+    echo "Counter is $counter"
+    counter=$((counter + 1)) # Increment counter
+done
+
+//////////////////////////////////////////////////////////////////////////////////////
+#!/bin/bash
+
+# Declare an array
+declare -a my_array=("Apple" "Banana" "Cherry" "Date" "Elderberry")
+
+# Print all elements of the array
+echo "All elements of the array:"
+echo "${my_array[@]}"
+
+# Print the first element
+echo "The first element is:"
+echo "${my_array[0]}"
+
+# Print the number of elements in the array
+echo "The number of elements in the array is:"
+echo "${#my_array[@]}"
+
+# Loop through the array and print each element
+echo "Looping through the array:"
+for element in "${my_array[@]}"; do
+  echo "$element"
+done
+
+# Add a new element to the array
+my_array+=("Fig")
+echo "After adding a new element:"
+echo "${my_array[@]}"
+
+# Remove an element from the array (e.g., the second element)
+unset my_array[1]
+echo "After removing the second element:"
+echo "${my_array[@]}"
+
