@@ -1,0 +1,25 @@
+public class Main {
+    public static int findTotalSum(int n, int[] arr, int position) {
+        int sum = 0;
+
+        int startIndex = position - 1;
+
+   
+        for (int i = startIndex; i < n - 1; i++) {
+            int difference = arr[i] - arr[i + 1];
+            if (difference < 0) {
+                difference = -difference;
+            }
+            sum += difference;
+        }
+
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        int n = 7;
+        int[] arr = {11, 22, 12, 24, 13, 26, 14};
+        int position = 5;
+        System.out.println(findTotalSum(n, arr, position
+    }
+}
