@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main {
+    public static String decrypt(String cipherText) {
+        StringBuilder decryptedText = new StringBuilder();
+
+        for (char ch : cipherText.toCharArray()) {
+            
+            char decryptedChar = (char) (ch + 3);
+            
+            if (decryptedChar > 'z') {
+                decryptedChar -= 26;
+            }
+
+            decryptedText.append(decryptedChar);
+        }
+
+        return decryptedText.toString();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        String cipherText = sc.nextLine();
+        
+        System.out.print(decrypt(cipherText));
+        
+    }
+}
